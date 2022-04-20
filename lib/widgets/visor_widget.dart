@@ -3,18 +3,16 @@ import 'package:flutter/material.dart';
 class VisorWidget extends StatelessWidget {
   final String value;
   final String result;
+  final VoidCallback onPress;
 
-  const VisorWidget({
-    required this.value,
-    required this.result,
-  });
+  const VisorWidget(
+      {required this.value, required this.result, required this.onPress});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 160,
       width: double.infinity,
-      color: Colors.grey[100],
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -30,7 +28,7 @@ class VisorWidget extends StatelessWidget {
                     Text(
                       value,
                       style: const TextStyle(
-                        fontSize: 60,
+                        fontSize: 55,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -39,7 +37,8 @@ class VisorWidget extends StatelessWidget {
               ),
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
                   result,
@@ -48,6 +47,12 @@ class VisorWidget extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
+                IconButton(
+                  onPressed: onPress,
+                  icon: const Icon(
+                    Icons.backspace,
+                  ),
+                )
               ],
             )
           ],

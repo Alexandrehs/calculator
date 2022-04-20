@@ -17,7 +17,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[250],
+      backgroundColor: Colors.grey[100],
       body: SafeArea(
         child: Column(
           children: [
@@ -26,6 +26,10 @@ class _HomePageState extends State<HomePage> {
               return VisorWidget(
                 value: data.digits.isEmpty ? '0' : data.digits,
                 result: data.result.toString(),
+                onPress: () {
+                  Provider.of<OperationsModel>(context, listen: false)
+                      .digitsDelete();
+                },
               );
             }),
             Expanded(

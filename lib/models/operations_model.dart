@@ -93,4 +93,11 @@ class OperationsModel extends ChangeNotifier {
       }
     }
   }
+
+  digitsDelete() {
+    if (_digits.isNotEmpty) {
+      _digits = _digits.substring(0, _digits.length - 1);
+    }
+    notifyListeners();
+  }
 }

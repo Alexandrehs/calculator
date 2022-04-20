@@ -76,4 +76,14 @@ void main() {
       expect(operationsModel.result, 2.0);
     },
   );
+
+  test(
+    'Nao deve aceitar repetir operadores exemplo ++',
+    () {
+      operationsModel.add('1');
+      operationsModel.operation('+');
+      operationsModel.operation('+');
+      expect(operationsModel.digitedOperator, true);
+    },
+  );
 }

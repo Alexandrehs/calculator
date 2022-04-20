@@ -51,12 +51,16 @@ class OperationsModel extends ChangeNotifier {
         return;
       }
       if (_sizeDigitsOfFirstDigit > 0 && _firstDigitsForOperation != 0) {
-        _secondDigitsForOperation = double.parse(
-          _digits
-              .substring(_sizeDigitsOfFirstDigit, _digits.length)
-              .split(operator)
-              .first,
-        );
+        try {
+          _secondDigitsForOperation = double.parse(
+            _digits
+                .substring(_sizeDigitsOfFirstDigit, _digits.length)
+                .split(operator)
+                .first,
+          );
+        } catch (e) {
+          _secondDigitsForOperation = 0;
+        }
 
         switch (_operatorSymbol) {
           case '+':

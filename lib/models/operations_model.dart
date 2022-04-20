@@ -9,7 +9,7 @@ class OperationsModel extends ChangeNotifier {
   int _sizeDigitsOfFirstDigit = 0;
   double _firstDigitsForOperation = 0;
   double _secondDigitsForOperation = 0;
-  static final List<String> _operators = ['+', '-', 'x', '÷'];
+  static final List<String> _operators = ['+', '-', 'x', '÷', '.'];
 
   OperationsModel(this._digits);
 
